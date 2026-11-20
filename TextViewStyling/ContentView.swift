@@ -7,18 +7,31 @@
 
 import SwiftUI
 
+
+
 struct ContentView: View {
+  
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack{
+            Form {
+                NavigationLink("Style Text") {
+                    TextStyleView()
+                }
+                NavigationLink("Mark down Text") {
+                    MarkdownView()
+                }
+            }
+            .navigationTitle("Text Styling")
         }
-        .padding()
     }
 }
 
 #Preview {
     ContentView()
+}
+
+
+
+protocol CustomeButtonDelegate:AnyObject{
+    func didTap(withTitle title : String)
 }
